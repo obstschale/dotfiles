@@ -96,8 +96,9 @@ GIT_PS1_SHOWUPSTREAM="auto"
 # and here's one similar to Paul Irish's famous prompt ... not sure if this is the way he does it, but it works  :)
 # \033[s = save cursor position
 # \033[u = restore cursor position
+# ${LIME_YELLOW}\033[s\033[60C (`date "+%a, %b %d"`)\033[u${WHITE}
 
-PS1='${MAGENTA}\u${WHITE} in ${GREEN}\w${WHITE}${YELLOW}`__git_ps1 " on %s"`${WHITE}\r\n${NORMAL}${LIME_YELLOW}\033[s\033[60C (`date "+%a, %b %d"`)\033[u${WHITE}$ '
+PS1='${MAGENTA}\u${WHITE} in ${GREEN}\w${WHITE}${YELLOW}`__git_ps1 " on %s"`${WHITE}\r\n${NORMAL}$ '
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
