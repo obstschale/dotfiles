@@ -1,3 +1,6 @@
+./dotfiles/auto_reload.sh
+
+alias antlr4='java -jar /usr/local/lib/antlr-4.0-complete.jar'
 # faster way to present a detailed list
 alias ll='ls -lahG'
 
@@ -31,7 +34,7 @@ function chrome() {
 
 # setting path
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
-
+export CLASSPATH=".:/usr/local/lib/antlr-4.0-complete.jar:$CLASSPATH"
 
 # Pimp my Prompt
 # digitalformula.net
@@ -98,7 +101,7 @@ GIT_PS1_SHOWUPSTREAM="auto"
 # \033[u = restore cursor position
 # ${LIME_YELLOW}\033[s\033[60C (`date "+%a, %b %d"`)\033[u${WHITE}
 
-PS1='${MAGENTA}\u${WHITE} in ${GREEN}\w${WHITE}${YELLOW}`__git_ps1 " on %s"`${WHITE}\r\n${NORMAL}$ '
+PS1='${YELLOW}\u${WHITE} in ${GREEN}\w${WHITE}${YELLOW}`__git_ps1 " on %s"`${WHITE}\r\n${NORMAL}$ '
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
