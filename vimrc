@@ -1,64 +1,97 @@
-" This .vimrc file should be placed in your home directory
-" The Terminal app supports (at least) 16 colors
-" So you can have the eight dark colors and the eight light colors
-" the plain colors, using these settings, are the same as the light ones
-" NOTE: You will need to replace ^[ with a raw Escape character, which you
-" can type by typing Ctrl-V and then (after releaseing Ctrl-V) the Escape key.
 
-if has("terminfo")
-  set t_Co=16
-  set t_AB=[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm
-  set t_AF=[%?%p1%{8}%<%t%p1%{30}%+%e%p1%{82}%+%;%dm
-else
-  set t_Co=16
-  set t_Sf=[3%dm
-  set t_Sb=[4%dm
+" An example for a vimrc file.
+"
+" Maintainer:	Bram Moolenaar <Bram@vim.org>
+" Last change:	2008 Dec 17
+"
+" To use it, copy it to
+"     for Unix and OS/2:  ~/.vimrc
+"	      for Amiga:  s:.vimrc
+"  for MS-DOS and Win32:  $VIM\_vimrc
+"	    for OpenVMS:  sys$login:.vimrc
+
+" When started as "evim", evim.vim will already have done these settings.
+if v:progname =~? "evim"
+  finish
 endif
 
-syntax on
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
 
-" Everything from here on down is optional
-" These colors are examples of what is possible
-" type :help syntax
-" or :help color within vim for more info
-" and try opening the file
-" share/vim/vim61/syntax/colortest.vim
-" Note: where share is depends on where/how you installed vim
- 
-highlight Comment       ctermfg=DarkGreen
-highlight Constant      ctermfg=DarkMagenta
-highlight Character     ctermfg=DarkRed
-highlight Special       ctermfg=DarkBlue
-highlight Identifier    ctermfg=DarkCyan
-highlight Statement     ctermfg=DarkBlue
-highlight PreProc       ctermfg=DarkBlue
-highlight Type          ctermfg=DarkBlue
-highlight Number        ctermfg=DarkBlue
-highlight Delimiter     ctermfg=DarkBlue
-highlight Error         ctermfg=Black
-highlight Todo          ctermfg=DarkBlue
-highlight WarningMsg    term=NONE           ctermfg=Black ctermbg=NONE   
-highlight ErrorMsg      term=NONE           ctermfg=DarkRed ctermbg=NONE 
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 
-" These settings only affect the X11 GUI version (which is different
-" than the fully Carbonized version at homepage.mac.com/fisherbb/
+if has("vms")
+  set nobackup		" do not keep a backup file, use versions instead
+else
+  set backup		" keep a backup file
+endif
+set history=50		" keep 50 lines of command line history
+set ruler		" show the cursor position all the time
+set showcmd		" display incomplete commands
+set incsearch		" do incremental searching
 
-highlight Comment       guifg=Green                 gui=NONE
-highlight Constant      guifg=Magenta               gui=NONE
-highlight Character     guifg=Red                   gui=NONE
-highlight Special       guifg=Blue                  gui=NONE
-highlight Identifier    guifg=DarkCyan              gui=NONE
-highlight Statement     guifg=DarkGreen             gui=NONE
-highlight PreProc       guifg=Purple                gui=NONE
-highlight Type          guifg=DarkGreen             gui=NONE
-"highlight Normal                   guibg=#E0F2FF   gui=NONE
-highlight Number        guifg=Blue                  gui=NONE
-"highlight Cursor       guifg=NONE  guibg=Green
-"highlight Cursor       guifg=bg    guibg=fg
-highlight Delimiter     guifg=blue                  gui=NONE
-"highlight NonText                  guibg=lightgray gui=NONE
-"highlight Error        guifg=White guibg=Red       gui=NONE
-highlight Error         guifg=NONE  guibg=NONE      gui=NONE
-highlight Todo          guifg=Blue  guibg=Yellow    gui=NONE
+" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
+" let &guioptions = substitute(&guioptions, "t", "", "g")
 
-"#### end color settings #############  
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
+
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+  set mouse=a
+endif
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
+
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+  au!
+
+  " For all text files set 'textwidth' to 78 characters.
+  autocmd FileType text setlocal textwidth=78
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  " Also don't do it when the mark is in the first line, that is the default
+  " position when opening a file.
+  autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+
+  augroup END
+
+else
+
+  set autoindent		" always set autoindenting on
+
+endif " has("autocmd")
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+		  \ | wincmd p | diffthis
+endif
