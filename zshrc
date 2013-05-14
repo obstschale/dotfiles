@@ -15,7 +15,7 @@
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+# plugins=(git)
 
 #----------------------------OH-MY-ZSH---------------------------------------
 
@@ -39,7 +39,5 @@ alias numbat='ssh s3424259@numbat.cs.rmit.edu.au'
 # shortcut to my github folder
 alias 2github='cd ~/Documents/Code/github/'
 
-# better git log
-alias git-log='git log --all --decorate --abbrev-commit --oneline --graph'
-# alias for a more personal git log
-alias gitlog='git log --decorate --stat --graph --pretty=format:"%C(yellow)%d%Creset %Cgreen%h%Creset (%ar - %Cred%an%Creset), %s%n"'
+# faster way to present a detailed list
+alias ll='ls -lahG'
