@@ -58,6 +58,9 @@ alias antlrworks='java -jar /Users/RetinaObst/Documents/Code/Java/ANTLR/antlrwor
 # start R
 alias rcalc='/usr/bin/R'
 
+# start OpenTTD
+alias openttd='open /usr/local/Cellar/openttd/1.3.0/OpenTTD.app'
+
 # Environment varibales ---------------------------------------------
 export EDITOR='vim'
 export PATH="/Users/RetinaObst/.rvm/gems/ruby-1.9.3-p392/bin:/Users/RetinaObst/.rvm/gems/ruby-1.9.3-p392@global/bin:/Users/RetinaObst/.rvm/rubies/ruby-1.9.3-p392/bin"
@@ -73,3 +76,6 @@ export CLASSPATH="/Users/RetinaObst/Documents/Code/Java/ANTLR/antlr-3.5-complete
 
 # access gitignore.io API
 function gi() { curl http://gitignore.io/api/$@ ;}
+
+# add autocompletion to git commands
+zstyle ':completion:*:*:git:*' script ~/.dotfiles/tag-git/git-completion.zsh
