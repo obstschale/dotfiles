@@ -1,4 +1,3 @@
-
 eval "$(hub alias -s)" 
 # Add ANTLR to Classpath
 # CLASSPATH=/Users/RetinaObst/Documents/University/DHBW/antlr-3.5-complete.jar:$CLASSPATH
@@ -51,6 +50,7 @@ alias 2github='cd ~/Documents/Code/github/'
 
 # faster way to present a detailed list
 alias ll='ls -lahG'
+alias ls='ls -lG'
 
 # start antlrworks
 alias antlrworks='java -jar /Users/RetinaObst/Documents/Code/Java/ANTLR/antlrworks/antlrworks-1.5.jar &'
@@ -58,8 +58,11 @@ alias antlrworks='java -jar /Users/RetinaObst/Documents/Code/Java/ANTLR/antlrwor
 # start R
 alias rcalc='/usr/bin/R'
 
+# ---Applications---
 # start OpenTTD
 alias openttd='open /usr/local/Cellar/openttd/1.3.0/OpenTTD.app'
+# open file with Mou
+alias mou='open -a Mou'
 
 # Environment varibales ---------------------------------------------
 export EDITOR='vim'
