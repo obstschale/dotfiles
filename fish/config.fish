@@ -14,3 +14,6 @@ set fish_plugins git brew
 
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
+
+# Load aliases
+source ~/.dotfiles/fish/aliases.fish
