@@ -1,0 +1,29 @@
+[user]
+	name = Hans-Helge Buerger
+	email = mail@hig-podcast.de
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+	lg = log --all --decorate --abbrev-commit --oneline --graph
+	lol = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	co = checkout
+	s = status -s
+	b = branch --all
+[credential]
+	helper = osxkeychain
+[push]
+	default = current
+[rerere]
+	enabled = true
+[merge]
+	tool = p4merge
+[mergetool]
+	prompt = false
+	keepBackup = false
+	keeptemporaries = false
+[core]
+	excludesfile = /Users/RetinaObst/.gitignore_global
+
