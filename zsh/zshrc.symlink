@@ -1,5 +1,8 @@
 sh ~/.dotfiles/script/welcome
 
+# shortcut to this dotfiles path is $ZSH
+export DOTFILES=$HOME/.dotfiles
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -69,3 +72,5 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# source aliases
+source $DOTFILES/zsh/aliases.zsh
