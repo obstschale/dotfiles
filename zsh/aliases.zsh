@@ -1,2 +1,7 @@
 alias rot13='php $DOTFILES/script/rot13.php'
 alias code='cd ~/Documents/code'
+alias gping='ping google.de'
+alias week='date +%W'
+alias reload='source ~/.zshrc'
+alias ...='cd ../..'
+alias ....='cd ../../..'
