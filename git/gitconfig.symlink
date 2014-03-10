@@ -26,4 +26,5 @@
 	keeptemporaries = false
 [core]
 	excludesfile = /Users/RetinaObst/.gitignore_global
+	editor = subl -n -w
 
