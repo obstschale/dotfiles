@@ -10,7 +10,7 @@ alias week='expr `date +%W` + 1'
 
 # ---Programs---
 alias mou='open -a Mou'
-
+alias 2048='sh $DOTFILES/script/bash2048.sh'
 # ---Shortcuts---
 alias code='cd ~/Documents/code'
 
