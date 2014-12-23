@@ -4,6 +4,9 @@ sh ~/.dotfiles/script/welcome
 # shortcut to this dotfiles path is $ZSH
 export DOTFILES=$HOME/.dotfiles
 
+# shortcut to WordPress-Development
+export WP_DEV="$HOME/Documents/code/PHP/WordPress/wordpress-dev"
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
