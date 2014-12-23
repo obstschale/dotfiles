@@ -15,6 +15,7 @@ alias swr3='vlc -I rc http://swr-mp3-m-swr3.akacast.akamaistream.net/7/720/13713
 alias mou='open -a Mou'
 alias 2048='sh $DOTFILES/script/bash2048.sh'
 alias speedtest='python ~/Documents/code/Python/tespeed/tespeed.py'
+alias vlc='~/Applications/VLC.app/Contents/MacOS/VLC'
 export TODOTXT_DEFAULT_ACTION=ls
 alias t='todo.sh -d /usr/local/Celler/todo-txt/2.10/bin/todo.sh'
 
