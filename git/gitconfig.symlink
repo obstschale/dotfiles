@@ -12,6 +12,7 @@
 	co = checkout
 	s = status -s
 	b = branch --all
+  amend = commit --amend
 [credential]
 	helper = osxkeychain
 [push]
