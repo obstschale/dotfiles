@@ -12,6 +12,8 @@ alias week='expr `date +%W` + 1'
 alias mou='open -a Mou'
 alias 2048='sh $DOTFILES/script/bash2048.sh'
 alias speedtest='python ~/Documents/code/Python/tespeed/tespeed.py'
+export TODOTXT_DEFAULT_ACTION=ls
+alias t='todo.sh -d /usr/local/Celler/todo-txt/2.10/bin/todo.sh'
 
 # ---Shortcuts---
 alias code='cd ~/Documents/code'
