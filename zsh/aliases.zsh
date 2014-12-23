@@ -21,7 +21,7 @@ alias ipn='ipython notebook'
 alias vlc='~/Applications/VLC.app/Contents/MacOS/VLC'
 
 export TODOTXT_DEFAULT_ACTION=ls
-alias t='todo.sh -d /usr/local/Celler/todo-txt/2.10/bin/todo.sh'
+alias t='todo.sh -d ~/.todo.cfg'
 
 # ---Shortcuts---
 alias code='cd ~/Documents/code'
