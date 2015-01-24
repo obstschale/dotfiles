@@ -1,0 +1,4 @@
+#!/bin/bash
+
+today=$(date +%Y-%m-%d)
+"$TODO_SH" ls due:$today
