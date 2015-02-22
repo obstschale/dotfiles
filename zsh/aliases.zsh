@@ -15,6 +15,7 @@ alias teufel='ffplay -nodisp -loop 0 $DOTFILES/assets/sin_10Hz_-72dBFS.mp3 2>/de
 # -I rc   open without gui
 alias swr3='vlc -I rc http://swr-mp3-m-swr3.akacast.akamaistream.net/7/720/137136/v1/gnl.akacast.akamaistream.net/swr-mp3-m-swr3'
 alias fritz='vlc -I rc http://rbb-mp3-fritz-m.akacast.akamaistream.net/7/799/292093/v1/gnl.akacast.akamaistream.net/rbb_mp3_fritz_m'
+alias fluxfm='vlc -I rc http://stream.hoerradar.de/fluxfm-berlin'
 
 # ---Programs---
 alias mou='open -a Mou'
