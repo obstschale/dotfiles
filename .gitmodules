@@ -4,6 +4,3 @@
 [submodule "mathiasbynens"]
 	path = mathiasbynens
 	url = https://github.com/mathiasbynens/dotfiles.git
-[submodule "pengwynn"]
-	path = pengwynn
-	url = https://github.com/pengwynn/dotfiles.git
