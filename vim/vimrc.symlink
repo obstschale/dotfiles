@@ -1,1 +1,77 @@
-../pengwynn/vim/vimrc.symlink
+"--------------General----------------"
+set number                            "Add line numbers.
+
+
+
+"--------------Visuals----------------"
+colorscheme atom-dark                 "Add colorscheme atom-dark https://github.com/gosukiwi/vim-atom-dark
+set t_CO=256                          "Use 256 color mode
+set guifont=Hack:h15                  "Use Hack font in vim and give it a height of 15
+set linespace=15                      "Macvim-specific line-height.
+
+set guioptions-=l                     "Remove left scrollbar in MacVim.
+set guioptions-=L                     "Remove left scrollbar in MacVim in split mode.
+set guioptions-=r                     "Remove right scrollbar in MacVim.
+set guioptions-=R                     "Remove right scrollbar in MacVim in split mode.
+
+
+
+"--------------Search----------------"
+set hlsearch                         "Highlight search items when using / to search for a string.
+set incsearch                        "Start highlighting items while I type a string to search for.
+
+
+
+"--------------Split Management----------------"
+set splitbelow
+set splitright
+
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-H> <C-W><C-H>
+nmap <C-L> <C-W><C-L>
+
+
+
+"--------------Colors and Fonts----------------"
+syntax enable                                  " Enable syntax highlighting
+set encoding=utf8                              " Set utf8 as standard encoding and en_US as the standard language
+set ffs=unix,dos,mac                           " Use Unix as the standard file type
+let mapleader = ','                            "The default leader is \, but a comma is much better.
+
+
+
+"--------------Mappings----------------"
+"Make it easy to edit the Vimrc file.
+nmap <Leader>ev :tabedit $MYVIMRC<cr>
+
+"Add simple higlight removeal.
+nmap <Leader><space> :nohlsearch<cr>
+
+
+
+
+"--------------Auto-Command----------------"
+"Automatically source the Vimrc file on save
+augroup autosourcing
+	autocmd!
+	autocmd BufWritePost .vimrc source %
+augroup END
+
+
+
+"--------------Status Line----------------"
+set laststatus=2                          " Always show the status line
+" Format the status line
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+
+
+
+"--------------Helper Functions----------------"
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    en
+    return ''
+endfunction
