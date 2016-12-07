@@ -35,7 +35,7 @@ alias code='cd ~/Documents/code'
 # ---GIT---
 alias g='git'
 alias gs='git status -s'
-alias glg='git lg'
+alias glg='git log'
 alias ga='git add'
 alias gc='git commit'
 alias amend='git commit --amend'
