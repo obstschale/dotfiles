@@ -1,5 +1,7 @@
-sh ~/.dotfiles/script/welcome
+# Display Greeting
+[ -z $SSH_CONNECTION ] && sh ~/.dotfiles/script/welcome
 
+# Display System Information
 [ -z $SSH_CONNECTION ] && /usr/local/bin/archey -c
 
 # shortcut to this dotfiles path is $ZSH
