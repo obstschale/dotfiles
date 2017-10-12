@@ -79,8 +79,8 @@ source $DOTFILES/zsh/functions.zsh
 # source uberspace functions
 [ -f $DOTFILES/zsh/uberspace.zsh ] && source $DOTFILES/zsh/uberspace.zsh
 
-# source confidential tokens
-[ -f $DOTFILES/zsh/tokens.zsh ] && source $DOTFILES/zsh/tokens.zsh
+# source confidential environment variables, like tokens
+[ -f $DOTFILES/.env ] && source $DOTFILES/.env
 
 
 # enable comments in cli
