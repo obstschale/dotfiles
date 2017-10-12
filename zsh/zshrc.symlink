@@ -75,10 +75,10 @@ source $DOTFILES/zsh/aliases.zsh
 source $DOTFILES/zsh/functions.zsh
 
 # source uberspace functions
-source $DOTFILES/zsh/uberspace.zsh
+[ -f $DOTFILES/zsh/uberspace.zsh ] && source $DOTFILES/zsh/uberspace.zsh
 
 # source confidential tokens
-source $DOTFILES/zsh/tokens.zsh
+[ -f $DOTFILES/zsh/tokens.zsh ] && source $DOTFILES/zsh/tokens.zsh
 
 
 # enable comments in cli
@@ -86,16 +86,13 @@ setopt interactivecomments
 
 DYLD_FALLBACK_LIBRARY_PATH=/usr/local/Cellar
 
-# added by travis gem
-[ -f /Users/RetinaObst/.travis/travis.sh ] && source /Users/RetinaObst/.travis/travis.sh
-
 export GOPATH="$HOME/go/bin"
+export PATH="$PATH:$GOPATH"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/perl5/lib/perl5"
 export PATH="$PATH:`yarn global bin`"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
-export PATH="$PATH:$GOPATH"
 
 export NVM_DIR="/Users/RetinaObst/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
