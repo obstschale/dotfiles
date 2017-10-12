@@ -9,10 +9,8 @@
 [alias]
 	lg = log --all --decorate --abbrev-commit --oneline --graph
 	lol = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	lf = git log --decorate --stat --graph --pretty=format:"%C(yellow)%d%Creset %Cgreen%h%Creset (%ar - %Cred%an%Creset), %s%n"
-	loc = git ls-files | xargs cat | wc -l
-	loc-file = git ls-files | xargs wc -l
-	undo = git reset --soft HEAD^
+	lf = log --decorate --stat --graph --pretty=format:'%C(yellow)%d%Creset %Cgreen%h%Creset (%ar - %Cred%an%Creset), %s%n'
+	undo = reset --soft HEAD^
 	co = checkout
 	s = status -s
 	b = branch --all
