@@ -9,10 +9,15 @@
 [alias]
 	lg = log --all --decorate --abbrev-commit --oneline --graph
 	lol = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lf = git log --decorate --stat --graph --pretty=format:"%C(yellow)%d%Creset %Cgreen%h%Creset (%ar - %Cred%an%Creset), %s%n"
+	loc = git ls-files | xargs cat | wc -l
+	loc-file = git ls-files | xargs wc -l
+	undo = git reset --soft HEAD^
 	co = checkout
 	s = status -s
 	b = branch --all
   amend = commit --amend
+  changelog = "!_() { t=$(git describe --abbrev=0 --tags); git log ${t}..HEAD --no-merges --pretty=format:'* %s'; }; _"
 [credential]
 	helper = osxkeychain
 [push]
@@ -26,12 +31,19 @@
 	keepBackup = false
 	keeptemporaries = false
 [core]
-	excludesfile = /Users/RetinaObst/.gitignore_global
-	editor = subl -n -w
+	excludesfile = $HOME/.gitignore_global
+	editor = atom -n -w
+	autocrlf = input
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[commit]
+	template = $DOTFILES/git/.stCommitMsg
