@@ -1,14 +1,16 @@
 sh ~/.dotfiles/script/welcome
-/usr/local/bin/archey -c
+
+[ -z $SSH_CONNECTION ] && /usr/local/bin/archey -c
 
 # shortcut to this dotfiles path is $ZSH
 export DOTFILES=$HOME/.dotfiles
 
-# shortcut to WordPress-Development
-export WP_DEV="$HOME/Documents/code/PHP/WordPress/wordpress-dev"
-
-# set Sublime Text as default editor
-export EDITOR=subl
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR="vim"
+else
+    export EDITOR="atom"
+fi
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -17,11 +19,10 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="sorin"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# ZSH_THEME="sorin"
+ZSH_THEME="agnoster"
+DEFAULT_USER=RetinaObst
+# ZSH_THEME="wezm"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -65,20 +66,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
 
-# # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # source aliases
 source $DOTFILES/zsh/aliases.zsh
@@ -86,3 +74,28 @@ source $DOTFILES/zsh/aliases.zsh
 # source functions
 source $DOTFILES/zsh/functions.zsh
 
+# source uberspace functions
+source $DOTFILES/zsh/uberspace.zsh
+
+# source confidential tokens
+source $DOTFILES/zsh/tokens.zsh
+
+
+# enable comments in cli
+setopt interactivecomments
+
+DYLD_FALLBACK_LIBRARY_PATH=/usr/local/Cellar
+
+# added by travis gem
+[ -f /Users/RetinaObst/.travis/travis.sh ] && source /Users/RetinaObst/.travis/travis.sh
+
+export GOPATH="$HOME/go/bin"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/perl5/lib/perl5"
+export PATH="$PATH:`yarn global bin`"
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+export PATH="$PATH:$GOPATH"
+
+export NVM_DIR="/Users/RetinaObst/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
