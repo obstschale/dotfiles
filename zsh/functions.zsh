@@ -1,4 +1,4 @@
-cprint() {
+function cprint() {
 	numRegex='[0-9]+$'
 	usrFile=$1
 	usrTime=$2
@@ -22,14 +22,7 @@ cprint() {
 	done
 }
 
-todo() {
-	gtd_id=`trello board list -o tsv | grep 00GTD | cut -d$'\t' -f 1`
-	inbox_id=`trello list list -b $gtd_id -o tsv | grep Inbox | cut -d$'\t' -f 1`
-
-	if [ -z ${2+x} ]; then
-		trello card create -l $inbox_id -n $1
-	else
-		trello card create -l $inbox_id -n $1 -d $2
-	fi
-
+# https://coderwall.com/p/qepsyq/shell-function-to-download-file
+function download {
+	$(which curl) -o ${1##*/} $1
 }
