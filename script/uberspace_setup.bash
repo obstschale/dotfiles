@@ -7,15 +7,29 @@
 ## uberspace with a simple command
 #################################################
 
-NAME=$(id -un)
+
+function _prepare_uberspace() {
+
+    if [[ -z "$HOME" ]]; then
+      # Default to old behavior
+      HOME=/home/$(id -un)
+    fi
+
+    printf "${BLUE}%s${NORMAL}\n" "Create $HOME/bin if necessary"
+    mkdir -p $HOME/bin
+    chmod 0755 $HOME/bin
+}
 
 function _install_wp() {
     printf "${BLUE}%s${NORMAL}\n" "Installing wp-cli"
-    curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /home/$NAME/tmp/wp-cli.phar
+    curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o $HOME/tmp/wp-cli.phar
 
-    mv /home/$NAME/tmp/wp-cli.phar /home/$NAME/bin/wp
-    chmod +x /home/$NAME/bin/wp
-    printf "${GREEN}%s${NORMAL}" "WP CLI installed at /home/$NAME/bin/wp"
+    mv -f $HOME/tmp/wp-cli.phar $HOME/bin/wp
+    chmod +x $HOME/bin/wp
+    printf "${GREEN}%s${NORMAL}\n" "WP CLI installed at $HOME/bin/wp"
 }
 
-_enable_colors
+function uberspace-private-setup() {
+    _enable_colors
+    _prepare_uberspace
+}
