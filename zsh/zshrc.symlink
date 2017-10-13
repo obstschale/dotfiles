@@ -1,12 +1,13 @@
 # shortcut to this dotfiles path is $ZSH
 export DOTFILES=$HOME/.dotfiles
 
+# Get some helper magic going.
+source $DOTFILES/scripts/helper.bash
 
 ###############################
 #### Auto Update Mechanism ####
 ###############################
 source $DOTFILES/script/update_dotfiles.bash
-
 
 # Display Greeting
 [ -z $SSH_CONNECTION ] && sh $DOTFILES/script/welcome
@@ -82,6 +83,9 @@ source $DOTFILES/zsh/aliases.zsh
 
 # source functions
 source $DOTFILES/zsh/functions.zsh
+
+# Bash script for setting up new uberspace servers
+source $DOTFILES/script/uberspace_setup.bash
 
 # source uberspace functions
 [ -f $DOTFILES/zsh/uberspace.zsh ] && source $DOTFILES/zsh/uberspace.zsh
