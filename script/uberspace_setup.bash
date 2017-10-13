@@ -32,4 +32,6 @@ function _install_wp() {
 function uberspace-private-setup() {
     _enable_colors
     _prepare_uberspace
-}
+
+    # Install CLI Tools
+    _install_wp

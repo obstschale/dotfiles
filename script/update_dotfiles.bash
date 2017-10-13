@@ -43,7 +43,7 @@ if [[ -z "$epoch_target" ]]; then
 fi
 
 # Cancel upgrade if git is unavailable on the system
-whence git >/dev/null || return 0
+which git >/dev/null || return 0
 
 # Fetch .dotfiles-update to see when last check was
 if [ -f $DOTFILES/.dotfiles-update ]; then
