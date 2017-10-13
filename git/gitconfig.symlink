@@ -11,6 +11,7 @@
 	lol = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lf = log --decorate --stat --graph --pretty=format:'%C(yellow)%d%Creset %Cgreen%h%Creset (%ar - %Cred%an%Creset), %s%n'
 	undo = reset --soft HEAD^
+	unstage = reset HEAD
 	co = checkout
 	s = status -s
 	b = branch --all
