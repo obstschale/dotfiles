@@ -35,3 +35,4 @@ function uberspace-private-setup() {
 
     # Install CLI Tools
     _install_wp
+}
