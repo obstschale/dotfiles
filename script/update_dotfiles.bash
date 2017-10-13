@@ -27,6 +27,18 @@ function _current_epoch() {
   echo $(( $(date '+%s') / 60 / 60 / 24 ))
 }
 
+function _print_success_message() {
+    printf '%s' "$GREEN"
+    printf '%s\n' '                                    '
+    printf '%s\n' '     _       _    __ _ _            '
+    printf '%s\n' '  __| | ___ | |_ / _(_) | ___  ___  '
+    printf '%s\n' ' / _` |/ _ \| __| |_| | |/ _ \/ __| '
+    printf '%s\n' '| (_| | (_) | |_|  _| | |  __/\__ \ '
+    printf '%s\n' ' \__,_|\___/ \__|_| |_|_|\___||___/ '
+    printf "${BLUE}%s\n" "Hooray! The ${YELLOW}dotfiles${BLUE} has been updated and/or is at the current version."
+    printf "${NORMAL}"
+}
+
 function _upgrade_dotfiles() {
     _enable_colors
 
@@ -35,18 +47,11 @@ function _upgrade_dotfiles() {
 
     if git pull --rebase --stat origin master
     then
-        printf '%s' "$GREEN"
-        printf '%s\n' '         __                                     __   '
-        printf '%s\n' '  ____  / /_     ____ ___  __  __   ____  _____/ /_  '
-        printf '%s\n' ' / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ '
-        printf '%s\n' '/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / '
-        printf '%s\n' '\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  '
-        printf '%s\n' '                        /____/                       '
-        printf "${BLUE}%s\n" "Hooray! Oh My Zsh has been updated and/or is at the current version."
+        _print_success_message
     else
       printf "${RED}%s${NORMAL}\n" 'There was an error updating. Try again later?'
     fi
-    
+
     _update_dotfiles_update
 }
 
