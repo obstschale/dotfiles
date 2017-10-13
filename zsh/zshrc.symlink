@@ -1,11 +1,18 @@
+# shortcut to this dotfiles path is $ZSH
+export DOTFILES=$HOME/.dotfiles
+
+
+###############################
+#### Auto Update Mechanism ####
+###############################
+source $DOTFILES/script/update_dotfiles.bash
+
+
 # Display Greeting
-[ -z $SSH_CONNECTION ] && sh ~/.dotfiles/script/welcome
+[ -z $SSH_CONNECTION ] && sh $DOTFILES/script/welcome
 
 # Display System Information
 [ -z $SSH_CONNECTION ] && /usr/local/bin/archey -c
-
-# shortcut to this dotfiles path is $ZSH
-export DOTFILES=$HOME/.dotfiles
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
