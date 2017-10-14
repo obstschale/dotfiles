@@ -7,6 +7,10 @@
 ## uberspace with a simple command
 #################################################
 
+function _switch_to_zsh() {
+    printf "${BLUE}%s${NORMAL}\n" "Change Shell to zsh"
+    chsh -s /bin/zsh
+}
 
 function _prepare_uberspace() {
 
@@ -31,6 +35,7 @@ function _install_wp() {
 
 function uberspace-private-setup() {
     _enable_colors
+    _switch_to_zsh
     _prepare_uberspace
 
     # Install CLI Tools
