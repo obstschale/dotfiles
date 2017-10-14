@@ -2,7 +2,7 @@
 export DOTFILES=$HOME/.dotfiles
 
 # Get some helper magic going.
-source $DOTFILES/scripts/helper.bash
+source $DOTFILES/script/helper.bash
 
 ###############################
 #### Auto Update Mechanism ####
