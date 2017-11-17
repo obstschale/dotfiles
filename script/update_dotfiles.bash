@@ -19,7 +19,8 @@ function _print_success_message() {
 function _upgrade_dotfiles() {
     _enable_colors
 
-    printf "${BLUE}%s${NORMAL}\n" "Updating Oh My Zsh"
+    WORKING_DIR = pwd
+    printf "${BLUE}%s${NORMAL}\n" "Updating dotfiles"
     cd $DOTFILES
 
     if git pull --rebase --stat origin master
@@ -30,6 +31,7 @@ function _upgrade_dotfiles() {
     fi
 
     _update_dotfiles_update
+    cd $WORKING_DIR
 }
 
 function _update_dotfiles_update() {
