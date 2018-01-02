@@ -1,18 +1,29 @@
+
+set nocompatible              " be iMproved, required
+
+so ~/.vim/plugins.vim
+
+set noerrorbells visualbell t_vb=			"No damn bells!
+
+
 "--------------General----------------"
 set number                            "Add line numbers.
+set tabstop=2
 
 
+hi vertsplit guifg=green 
 
 "--------------Visuals----------------"
-colorscheme atom-dark                 "Add colorscheme atom-dark https://github.com/gosukiwi/vim-atom-dark
-set t_CO=256                          "Use 256 color mode
-set guifont=Hack:h15                  "Use Hack font in vim and give it a height of 15
-set linespace=15                      "Macvim-specific line-height.
+"colorscheme atom-dark			"Add colorscheme atom-dark https://github.com/gosukiwi/vim-atom-dark
+set t_CO=256				"Use 256 color mode
+set guifont=Hack:h15			"Use Hack font in vim and give it a height of 15
+set guioptions-=e			"We don't want Gui tabs.
+set linespace=15			"Macvim-specific line-height.
 
-set guioptions-=l                     "Remove left scrollbar in MacVim.
-set guioptions-=L                     "Remove left scrollbar in MacVim in split mode.
-set guioptions-=r                     "Remove right scrollbar in MacVim.
-set guioptions-=R                     "Remove right scrollbar in MacVim in split mode.
+set guioptions-=l			"Remove left scrollbar in MacVim.
+set guioptions-=L			"Remove left scrollbar in MacVim in split mode.
+set guioptions-=r			"Remove right scrollbar in MacVim.
+set guioptions-=R			"Remove right scrollbar in MacVim in split mode.
 
 
 
@@ -41,13 +52,45 @@ let mapleader = ','                            "The default leader is \, but a c
 
 
 
+"--------------Plugins----------------"
+
+"/
+"/ CtrlP
+"/
+let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
+let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
+
+nmap <D-p> :CtrlP<cr>
+"Make CtrlP Shortcut for Symbols, i.e. function names
+nmap <D-r> :CtrlPBufTag<cr>
+"Shortcut for most recent used files
+nmap <D-e> :CtrlPMRUFiles<cr>
+
+
+"/
+"/ NERDTree 
+"/
+let NERDTreeHijackNetrw = 0
+
+"Make NERDTree easier to toogle
+nmap <D-1> :NERDTreeToggle<cr>
+
+
+"/
+"/ Vim Powerline 
+"/
+set rtp+=/usr/local/lib/python3.6/site-packages/powerline/bindings/vim 
+set laststatus=2			" Show Statusline all the time
+set t_Co=256          " Enable 256 Color Mode
+
+
 "--------------Mappings----------------"
 "Make it easy to edit the Vimrc file.
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
+nmap <Leader>es :e ~/.vim/snippets/php.snippets<cr>
 
 "Add simple higlight removeal.
 nmap <Leader><space> :nohlsearch<cr>
-
 
 
 
@@ -61,10 +104,9 @@ augroup END
 
 
 "--------------Status Line----------------"
-set laststatus=2                          " Always show the status line
+"set laststatus=2                          " Always show the status line
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 
 "--------------Helper Functions----------------"
@@ -75,3 +117,15 @@ function! HasPaste()
     en
     return ''
 endfunction
+
+
+
+"-------------Tips and Reminders--------------"
+" - Press 'zz' to instantly center the line where the cursor is located.
+" - Press 'cs <char1> <char2>' [chang surrounding]
+"	to replace <char1> with <char2>
+" - Press 'ds <char>' [delete surrounding] to delete <char>
+" - Press 'cst' [change surrounding tag] within HTML
+" - Press 'dst' [delete surrounding tag] within HTML
+" - Select Text and Press 'S' to surround selection
+" 	with new tag, like <strong class='row'>
