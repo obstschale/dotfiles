@@ -12,7 +12,6 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles FALSE; killal
 # ---Usefull Commmands---
 alias rot13='php $DOTFILES/script/rot13.php'
 alias reload='clear; source $HOME/.zshrc'
-alias gping='ping google.de'
 alias dping='ping duckduckgo.com'
 alias week='expr `date +%W`'
 alias vagrant-mysql='vagrant ssh -c "sudo service mysql start"'
