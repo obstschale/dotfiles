@@ -1,4 +1,13 @@
 *~
 .DS_Store
-
 .idea/
+.vscode/
+
+/sites/default/log
+/sites/default/blobs
+
+todo.md
+todo.txt
+*.todo
+
+vendor/

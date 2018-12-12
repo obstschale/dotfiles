@@ -15,8 +15,11 @@
 	co = checkout
 	s = status -s
 	b = branch --all
-  amend = commit --amend
-  changelog = "!_() { t=$(git describe --abbrev=0 --tags); git log ${t}..HEAD --no-merges --pretty=format:'* %s'; }; _"
+  	amend = commit --amend
+  	changelog = "!_() { t=$(git describe --abbrev=0 --tags); git log ${t}..HEAD --no-merges --pretty=format:'* %s'; }; _"
+	discard = checkout --
+  	prune-remote = remote update origin --prune
+	cleanup = fmd && git branch --merged | egrep -v '(^\\*|master|dev)' | xargs git branch -d
 [credential]
 	helper = osxkeychain
 [push]
@@ -30,10 +33,12 @@
 	keepBackup = false
 	keeptemporaries = false
 [core]
-	excludesfile = $HOME/.gitignore_global
-	editor = vim 
+	excludesfile = ~/.gitignore_global
+	editor = vim
 	autocrlf = input
-
+	whitespace = cr-at-eol
+[rebase]
+	autoStash = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -41,6 +46,7 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
