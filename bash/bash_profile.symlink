@@ -1,3 +1,4 @@
+source ~/.profile
 # colors
 BLACK=$(tput setaf 0)
 RED=$(tput setaf 1)
