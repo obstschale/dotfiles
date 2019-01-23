@@ -36,7 +36,7 @@ alias nova='radio -p 1'
 # Play webradio streams with VLC
 # -I rc   open without gui
 #################################
-alias swr3='vlc -I rc http://mp3-live.swr3.de/swr3_m.m3u'
+alias swr3='vlc -I rc https://swr-swr3-live.sslcast.addradio.de/swr/swr3/live/aac/96/stream.aac' 
 # alias fritz='vlc -I rc http://rbb-mp3-fritz-m.akacast.akamaistream.net/7/799/292093/v1/gnl.akacast.akamaistream.net/rbb_mp3_fritz_m'
 # alias fluxfm='vlc -I rc http://stream.hoerradar.de/fluxfm-berlin'
 
