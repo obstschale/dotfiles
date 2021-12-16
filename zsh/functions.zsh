@@ -64,3 +64,14 @@ function rollback {
 	fi
 
 }
+
+function import_support_data {
+	echo "Drop ct_support";
+	mysql -u root --execute "drop database ct_support;"
+
+	echo "Create ct_support;"
+	mysql -u root --execute "create database ct_support;"
+
+	echo "Import Data: $1"
+	pv $1 | mysql -u root ct_support
+}
