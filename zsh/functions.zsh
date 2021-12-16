@@ -26,3 +26,8 @@ function cprint() {
 function download {
 	$(which curl) -o ${1##*/} $1
 }
+
+function wetter {
+	curl -4 wttr.in/$1
+}
+
