@@ -8,6 +8,7 @@
 	branch = auto
 [alias]
 	lg = log --all --decorate --abbrev-commit --oneline --graph
+	lgb = log --decorate --abbrev-commit --oneline --graph
 	lol = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lf = log --decorate --stat --graph --pretty=format:'%C(yellow)%d%Creset %Cgreen%h%Creset (%ar - %Cred%an%Creset), %s%n'
 	undo = reset --soft HEAD^
@@ -50,3 +51,5 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
+[init]
+	defaultBranch = main
