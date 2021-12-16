@@ -37,7 +37,10 @@ alias nova='radio -p 1'
 # Play webradio streams with VLC
 # -I rc   open without gui
 #################################
-alias swr3='vlc -I rc https://swr-swr3-live.sslcast.addradio.de/swr/swr3/live/aac/96/stream.aac' 
+alias swr3='vlc -I rc https://swr-swr3-live.sslcast.addradio.de/swr/swr3/live/aac/96/stream.aac'
+alias radio='clear; figlet -f roman SWR3 | lolcat -t; swr3'
+alias on='off 2>/dev/null; tmux send-keys -t Work:Radio "radio" C-m'
+alias off='killall VLC'
 # alias fritz='vlc -I rc http://rbb-mp3-fritz-m.akacast.akamaistream.net/7/799/292093/v1/gnl.akacast.akamaistream.net/rbb_mp3_fritz_m'
 # alias fluxfm='vlc -I rc http://stream.hoerradar.de/fluxfm-berlin'
 
