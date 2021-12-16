@@ -1,0 +1,47 @@
+#!/bin/sh
+
+RADIO_API=https://www.swr3.de/ext/cf\=42/actions/feed/onair.json
+
+# 20 Seconds
+epoch_target=2
+
+
+function _current_epoch() {
+  echo $(date '+%s')
+}
+
+function _fetch_radiotext() {
+    RADIOTEXT=$(curl -s $RADIO_API)
+    NEW_ARTIST=$(echo $RADIOTEXT | python -mjson.tool | grep -m 1 "artist" | cut -d '"' -f 4 | php -r 'while(($line=fgets(STDIN)) !== FALSE) echo html_entity_decode($line, ENT_QUOTES|ENT_HTML401);')
+    NEW_TITLE=$(echo $RADIOTEXT | python -mjson.tool | grep -m 1 "title" | cut -d '"' -f 4 | php -r 'while(($line=fgets(STDIN)) !== FALSE) echo html_entity_decode($line, ENT_QUOTES|ENT_HTML401);')
+    
+    echo "LAST_UPDATE=$(_current_epoch)" > /tmp/radiotext
+    echo "ARTIST=\"$NEW_ARTIST\"" >> /tmp/radiotext
+    echo "TITLE=\"$NEW_TITLE\"" >> /tmp/radiotext
+}
+
+
+
+# Fetch radiotext file to see when last check was
+if [ -f /tmp/radiotext ]; then
+    . /tmp/radiotext
+
+    if [ $1 == 'artist' ]; then
+        echo $ARTIST
+
+        # Update info only on artist call, otherwise the title call would also
+        # update the file and this lead to a flicker on the screen
+        epoch_diff=$(($(_current_epoch) - $LAST_UPDATE))
+        if [ $epoch_diff -gt $epoch_target ]; then
+            # Update Info
+            _fetch_radiotext
+        fi
+
+    elif [ $1 == 'title' ]; then
+        echo $TITLE
+    fi
+    
+else
+    _fetch_radiotext
+fi
+
