@@ -1,0 +1,23 @@
+# /Users/hhbuerger/.config/tmuxinator/ct.yml
+
+name: ct
+root: ~/
+
+
+windows:
+  - instances:
+      layout: even-vertical
+      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+      synchronize: after
+      panes:
+        - ssh ct1
+        - ssh ct2
+        - ssh ct3 
+  - databases:
+      layout: even-vertical
+      synchronize: after
+      panes:
+        - ssh ctDb1
+        - ssh ctDb2
+        - ssh ctDb3

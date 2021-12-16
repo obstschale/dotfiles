@@ -1,0 +1,22 @@
+# /Users/hhbuerger/.config/tmuxinator/work.yml
+
+name: Work
+root: ~/Code/Various/churchtools
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+startup_window: ChurchTools
+
+# Specifies (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
+startup_pane: 1
+
+windows:
+  - Radio: clear; figlet -f roman SWR3 | lolcat -t; swr3
+  - ChurchTools:
+      layout: d82f,178x51,0,0[178x44,0,0{126x44,0,0,1,51x44,127,0,3},178x6,0,45,4]
+      panes:
+        - clear; # figlet -w 120 -f roman ChurchTools | lolcat -t
+        - clear; sl
+        - watch git stash list
+  - Lazygit: lazygit
+  - Spielwiese: cd ~; clear; figlet -f roman Ready | lolcat -t
+
