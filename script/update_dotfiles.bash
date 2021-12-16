@@ -19,7 +19,7 @@ function _print_success_message() {
 function _upgrade_dotfiles() {
     _enable_colors
 
-    WORKING_DIR = pwd
+	WORKING_DIR=$(pwd)
     printf "${BLUE}%s${NORMAL}\n" "Updating dotfiles"
     cd $DOTFILES
 
