@@ -1,9 +1,10 @@
 # ---General---
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias ll='ls -lh'
-alias la='ls -lah'
+alias ll='exa -l'
+alias la='exa -la'
 alias l='la'
+alias sl='sl -e | lolcat -t'
 
 # ---Core---
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
