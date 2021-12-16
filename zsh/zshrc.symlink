@@ -94,6 +94,8 @@ source $DOTFILES/script/uberspace_setup.bash
 
 # Source secret stuff
 [ -f $DOTFILES/dont-trac/aliases.sh ] && source $DOTFILES/dont-trac/aliases.sh
+[ -f $DOTFILES/dont-trac/seafile.sh ] && source $DOTFILES/dont-trac/seafile.sh
+[ -f $DOTFILES/dont-trac/keys.sh ] && source $DOTFILES/dont-trac/keys.sh
 
 
 # enable comments in cli
