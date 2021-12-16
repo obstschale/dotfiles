@@ -57,6 +57,7 @@ alias log='changelogger'
 # ---Shortcuts---
 # alias code='cd $HOME/Code'
 alias projects='cd $HOME/Projects'
+alias test-contact='cd ~/Code/ChurchTools/contact-form-test && yarn test; cd -'
 
 # ---GIT---
 alias g='git'
