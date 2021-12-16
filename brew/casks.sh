@@ -10,10 +10,8 @@ fi
 echo "Install Applications"
 
 declare -a arr=("firefox" "zoomus" "phpstorm" "alfred" "hyper" "dash" "postman" "rocket-chat"
-                "sequel-pro" "vlc" "visual-studio-code")
+                "sequel-pro" "vlc" "visual-studio-code" "syncthing" "keepassxc" "todoist"
+                "obsidian" "rocket-chat" "seafile-client" "docker" "dozer" "logos" "postman"
+                "responsively" "spotify" "vlc")
 
-for i in "${arr[@]}"
-do
-    echo "Install $i"
-    brew cask install "$i"
-done
+brew cask install ${arr[*]}
