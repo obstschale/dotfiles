@@ -75,3 +75,15 @@ function import_support_data {
 	echo "Import Data: $1"
 	pv $1 | mysql -u root ct_support
 }
+
+function geolocation {
+	GEO=$(curl -s "https://api.freegeoip.app/json/?apikey=$FREEGEOIP_APIKEY")
+
+	LAT=$(echo $GEO | json | grep latitude | cut -d: -f2 | cut -d, -f1 | xargs)
+	LON=$(echo $GEO | json | grep longitude | cut -d: -f2 | cut -d, -f1 | xargs)
+
+	#echo "Latitude: $LAT";
+	#echo "Longitude: $LON";
+
+	echo "[$LAT,$LON]";
+}
