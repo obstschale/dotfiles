@@ -1,8 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/hhbuerger/.dotfiles'
-let g:netrw_dirhist_2='/Users/hhbuerger/.dotfiles/brew'
-let g:netrw_dirhist_3='/Users/hhbuerger/.dotfiles'
-let g:netrw_dirhist_4='/Users/hhbuerger/.dotfiles/assets'
-let g:netrw_dirhist_5='/Users/hhbuerger/.dotfiles'
-let g:netrw_dirhist_6='/Users/hhbuerger/.dotfiles/zsh'
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/Users/hhbuerger/Code/Code/octave/octave-docset'
+let g:netrw_dirhist_5='/Users/hhbuerger/Code/Various/churchtools/changelogs/unreleased'
+let g:netrw_dirhist_4='/Users/hhbuerger/Code/Various/churchtools/changelogs'
+let g:netrw_dirhist_3='/Users/hhbuerger/Code/Various/churchtools'
+let g:netrw_dirhist_2='/Users/hhbuerger/Code/Various/foobar/churchtools'
+let g:netrw_dirhist_1='/Users/hhbuerger/.composer'
