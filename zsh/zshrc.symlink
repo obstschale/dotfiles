@@ -103,10 +103,21 @@ setopt interactivecomments
 
 DYLD_FALLBACK_LIBRARY_PATH=/usr/local/Cellar
 
+# Relative cd into any subfolder
+# of the following paths
+# i.e. cd example -> ~/SynologyDrive/Projekte/Laravel/example
+# src: https://twitter.com/paulredmond/status/1204557648026144768
+cdpath=(~/SynologyDrive/Projekte/Laravel ~/SynologyDrive/Projekte/Various ~/SynologyDrive/Code)
+
 export GOPATH="$HOME/go/bin"
 export PATH="$PATH:$GOPATH"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/perl5/lib/perl5"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
-export PATH="$PATH:$HOME/.dotfiles/tmux"
+export PATH="$PATH:$HOME/.dotfiles/tmux.symlink"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
