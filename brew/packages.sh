@@ -9,7 +9,7 @@ fi
 
 echo "Install Packages"
 
-declare -a arr=("zsh" "tmux" "git" "php@7.2" "composer" "node" "tree")
+declare -a arr=("zsh" "tmux" "git" "php@7.2" "composer" "node" "tree" "htop" "ranger")
 
 for i in "${arr[@]}"
 do
