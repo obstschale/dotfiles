@@ -20,7 +20,7 @@ alias art='php artisan'
 alias json='python -mjson.tool'
 alias jsonc='json | pygmentize -l json'
 alias cat='bat'
-alias dping='ping duck.co'
+alias gping='ping google.de'
 alias ping='prettyping --nolegend'
 
 # ---Audio / Radio---
