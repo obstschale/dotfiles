@@ -31,3 +31,36 @@ function wetter {
 	curl -4 wttr.in/$1
 }
 
+
+function rollback {
+
+	if [ -e './system/includes/constants.php' ]
+	then
+		DBUSER=$(grep -m 1 '^db_user' ./sites/default/churchtools.config | cut -d '=' -f2 | xargs)
+		DBPASS=$(grep -m 1 '^db_password' ./sites/default/churchtools.config | cut -d '=' -f2 | xargs)
+		DBNAME=$(grep -m 1 '^db_name' ./sites/default/churchtools.config | cut -d '=' -f2 | xargs)
+		echo -e "Database Name:\t$DBNAME"
+
+		BUILD=$(echo "SELECT value FROM cc_config WHERE name = 'build'" | mysql -u $DBUSER --password=$DBPASS -N $DBNAME)
+		echo -e "DB Build:\t$BUILD"
+
+		CONSTANT=$(grep -m 1 BUILD_VERSION ./system/includes/constants.php | cut -d"\"" -f4)
+		echo -e "Code Build:\t$CONSTANT"
+
+		if [ $BUILD -eq $CONSTANT ]
+		then
+			echo "Already current"
+			return
+		fi
+
+		echo "Rolling back ..."
+		echo "UPDATE cc_config SET value=$CONSTANT WHERE name = 'build'" | mysql -u $DBUSER --password=$DBPASS $DBNAME
+
+	else
+
+		echo "./system/includes/constants.php Not Found."
+		echo "Make sure you are in the root dir of churchtools"
+		echo "Exiting"
+	fi
+
+}
