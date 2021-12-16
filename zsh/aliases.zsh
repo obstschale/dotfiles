@@ -52,6 +52,7 @@ alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 alias ct='composer test'
 alias cov='composer coverage'
 alias naturemood='$DOTFILES/script/naturemood'
+alias log='changelogger'
 
 # ---Shortcuts---
 # alias code='cd $HOME/Code'
