@@ -3,3 +3,4 @@
 .env
 .dotfiles-update
 dont-trac/
+tmux.symlink/plugins
