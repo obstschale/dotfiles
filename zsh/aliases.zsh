@@ -37,7 +37,7 @@ alias nova='radio -p 1'
 # Play webradio streams with VLC
 # -I rc   open without gui
 #################################
-alias swr3='vlc -I rc https://swr-swr3-live.sslcast.addradio.de/swr/swr3/live/aac/96/stream.aac'
+alias swr3='vlc -I rc https://dispatcher.rndfnk.com/swr/swr3/live/aac/96/stream.aac\?aggregator\=radio-de'
 alias radio='clear; figlet -f roman SWR3 | lolcat -t; swr3'
 alias on='off 2>/dev/null; tmux send-keys -t Work:Radio "radio" C-m'
 alias off='killall VLC'
